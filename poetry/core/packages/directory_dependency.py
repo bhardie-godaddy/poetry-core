@@ -121,8 +121,7 @@ class DirectoryDependency(Dependency):
 
         if self.extras:
             requirement += "[{}]".format(",".join(self.extras))
-
-        path = path_to_url(self.path) if self.path.is_absolute() else self.path
+        path = path_to_url(self._full_path)
         requirement += " @ {}".format(path)
 
         return requirement
